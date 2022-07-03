@@ -15,7 +15,7 @@ build:
 		--tag $(IMAGE_VERSIONED) \
 		.
 
-publish: build-image
+publish: build
 	podman push $(IMAGE_VERSIONED)
 	podman tag $(IMAGE_VERSIONED) $(IMAGE_LATEST)
 	podman push $(IMAGE_LATEST)
