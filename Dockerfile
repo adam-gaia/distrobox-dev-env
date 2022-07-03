@@ -64,6 +64,7 @@ RUN cargo install \
   ripgrep \
   vivid \
   bat \
+  du-dust \
   navi
 # didyoumean
 

@@ -1,6 +1,6 @@
 REGISTRY := docker.io/agaia
 NAME := dev
-TAG := 0.0.1
+TAG := 0.0.2
 IMAGE := $(REGISTRY)/$(NAME)
 IMAGE_VERSIONED := $(IMAGE):$(TAG)
 IMAGE_LATEST := $(IMAGE):latest
