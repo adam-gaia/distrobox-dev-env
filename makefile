@@ -7,7 +7,7 @@ IMAGE_LATEST := $(IMAGE):latest
 
 .PHONY: build-image push-image create-box enter
 
-build-image:
+build:
 	podman build \
 		--build-arg "USER_NAME=$$(whoami)" \
 		--build-arg "USER_ID=$$(id -u)" \
@@ -15,11 +15,14 @@ build-image:
 		--tag $(IMAGE_VERSIONED) \
 		.
 
-push-image: build-image
+publish: build-image
 	podman push $(IMAGE_VERSIONED)
 	podman tag $(IMAGE_VERSIONED) $(IMAGE_LATEST)
 	podman push $(IMAGE_LATEST)
-	
+
+pull:
+	podman pull $(IMAGE_VERSIONED)
+
 create-box:
 	distrobox create --image $(IMAGE_VERSIONED) --name $(NAME) --yes
 
